@@ -1,0 +1,168 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - good_words
+  - bad_words
+  - bot_challenge
+  - order
+  - know_latest_information
+  - complain
+  - mobile_applet
+  - get_order_information
+  - other_needs
+  - complain_product
+  - complain_employees
+  - choose_wrong
+  - department_name
+  - don't_know
+  - user_id
+  - order_id
+  - human_service
+  - feedback
+  - ask_for_help
+
+entities:
+  - user_ID
+  - order_ID
+  - department
+
+slots:
+  user_ID:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: user_ID
+  order_ID:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: order_ID
+  department:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: department
+
+forms:
+  ask_order_form:
+    required_slots:
+      - user_ID
+      - order_ID
+
+responses:
+  utter_menu:
+  - text: "May I help you?"
+    buttons:
+    - title: "I need to know the latest product information"
+      payload: /know_latest_information
+    - title: "I need to complain"
+      payload: /complain
+    - title: "I want to experience the latest mobile applet"
+      payload: /mobile_applet
+    - title: "I want to get the information about the product order I purchased"
+      payload: /get_order_information
+    - title: "I have other needs"
+      payload: /other_needs
+
+  utter_greet:
+  - text: "Hey! Welcome to Astral! I'm Amiya"
+  - text: "Hello, my name is Amiya, I am the customer service bot of astral."
+  - text: "Hello my friend!"
+  - text: "Nice to see you!"
+
+  utter_one:
+  - text: "You are being transferred to the \"Latest News\" page of the company website. Please wait."
+
+  utter_one_website:
+    - text: "https://xxxxxxx.com"
+
+  utter_two:
+  - text: "Which one do you want to complain about? "
+    buttons:
+      - title: "I want to complain product."
+        payload: /complain_product
+      - title: "I want to complain employee."
+        payload: /complain_employees
+
+  utter_two_product:
+  - text: "Getting the product list for you, please wait, click the corresponding name to give feedback"
+
+  utter_product_list:
+  - text: "xxx.xx 3.0\n
+          \t xxxx Pro\n
+          \t xxxxxx Plus Pro"
+
+  utter_two_employee:
+  - text: "Which department do you want to complain:"
+    buttons:
+    - title: "Information Technology Department."
+      payload: '/department_name{{"department": "Information Technology"}}'
+    - title: "Marketing department."
+      payload: '/department_name{{"department": "Marketing"}}'
+    - title: "Human Resources Department."
+      payload: '/department_name{{"department": "Human Resources"}}'
+    - title: "Quality Inspection Department. "
+      payload: '/department_name{{"department": "Quality Inspection"}}'
+    - title: "Finance Department."
+      payload: '/department_name{{"department": "Finance"}}'
+    - title: "I don't know the department of this employee."
+      payload: /don't_know
+
+  utter_don't_know_number:
+    - text: "You can send a complaint email to this mailbox. We will handle your situation within two working days,and we will send an email to reply to your complaint"
+
+  utter_feedback:
+  - text: "Thank you for your feedback"
+
+  utter_three:
+    - text: "Getting the download address for you, please wait."
+
+  utter_ask_user_ID:
+    - text: "Please give me your user ID."
+    - text: "Can you give me your user ID, please?"
+
+  utter_ask_order_ID:
+    - text: "Please give me your order number."
+    - text: "Can you give me your order number, please?"
+
+  utter_five:
+    - text: "You need human services or just feedback?"
+
+  utter_human_service:
+    - text: "Contacting online customer service."
+
+  utter_answer_feedback:
+    - text: "Please fill in your feedback in the text box."
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_response_bad_words:
+    - text: "I'm sorry I couldn't meet your needs"
+    - text: "Please don't say that. Maybe we can talk some more?"
+    - text: "Calm down, please. Do you need a human help?"
+
+  utter_goodbye:
+  - text: "Bye!"
+  - text: "See you, have a nice day!"
+
+  utter_other_help:
+    - text: "You are welcome. did you need other help?"
+
+  utter_iamabot:
+  - text: "I am a bot of Astral and my name is Amiya. Do you want human service?"
+
+actions:
+  - action_employee
+  - action_order_num
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

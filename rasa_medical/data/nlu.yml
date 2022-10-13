@@ -1,0 +1,183 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - is anyone here
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - good morning
+    - good evening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes, I have
+    - I have
+    - yes, I need
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't know
+
+- intent: good_words
+  examples: |
+    - thanks! it is helpful!
+    - thank you
+    - that helped me
+    - good boy
+    - thanks
+    - it help me
+    - nice bot
+    - good job
+
+- intent: bad_words
+  examples: |
+    - that's useless
+    - useless
+    - fool bot
+    - that's help me nothing
+    - idiot
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: ask_for_help
+  examples: |
+    - I need some help.
+    - can you help me?
+    - do something for me.
+    - give me the menu
+    - what can you do?
+    - menu
+    - help
+
+- intent: know_latest_information
+  examples: |
+    - I need to know the latest product information.
+    - latest information
+    - news about latest products
+
+- intent: complain
+  examples: |
+    - I need to complain.
+    - complain
+    - your products are so bad and I want to complain
+    - I want to complain
+
+- intent: mobile_applet
+  examples: |
+    - I want to experience latest mobile applet
+    - How about latest mobile applet
+    - what dose mobile applet look like
+
+- intent: get_order_information
+  examples: |
+    - I want to get the information about the product order I purchased.
+    - get my ordered information
+    - my product information
+
+- intent: other_needs
+  examples: |
+    - I have other needs.
+    - I need other needs.
+    - other needs
+
+- intent: complain_product
+  examples: |
+    - I want to choose products.
+    - products
+    - your product has some problem
+    - product
+
+- intent: complain_employees
+  examples: |
+    - I want to choose employees.
+    - employees
+    - I choose employee
+    - employee
+
+- intent: choose_wrong
+  examples: |
+    - I chose the wrong option
+    - back to menu
+    - return
+
+- intent: department_name
+  examples: |
+    - [Information Technology](department) Department
+    - I want to complain [Marketing](department)
+    - complain [Human Resources](department) Department
+    - [Quality Inspection](department) Department
+    - [Finance](department) Department
+    - [Marketing](department)
+
+- intent: don't_know
+  examples: |
+    - I don't know the department of this employee.
+    - No, I don't know
+    - dont
+
+- intent: user_id
+  examples: |
+    - My user ID is [UD20221](user_ID)
+    - That's [UD20222](user_ID)
+    - Is [UD20223](user_ID)
+    - [UD20224](user_ID)
+
+- intent: order_id
+  examples: |
+    - My order number is [1375](order_ID)
+    - That's [5680](order_ID)
+    - Is [7439](order_ID)
+    - [3024](order_ID)
+
+- intent: human_service
+  examples: |
+    - I need human service.
+    - human service
+    - human
+    - I want human
+
+- intent: feedback
+  examples: |
+    - I want feedback
+    - feedback

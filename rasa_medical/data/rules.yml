@@ -1,0 +1,51 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: When users ask for help, bot must give menu
+  steps:
+    - intent: ask_for_help
+    - action: utter_menu
+
+- rule: If users chose the wrong option, give menu again
+  steps:
+    - intent: choose_wrong
+    - action: utter_menu
+
+- rule: If user want to complain employee, give the department menu
+  steps:
+    - intent: complain_employees
+    - action: utter_two_employee
+
+- rule: If user choose a department, give them feed back
+  steps:
+    - intent: department_name
+    - action: action_employee
+
+- rule: Activate ask_order_form
+  steps:
+    - intent: get_order_information
+    - action: ask_order_form
+    - active_loop: ask_order_form
+
+- rule: Submit Order Form
+  condition:
+  - active_loop: ask_order_form
+  steps:
+    - action: ask_order_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_order_num
+
+

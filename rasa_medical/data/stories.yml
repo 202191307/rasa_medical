@@ -1,0 +1,88 @@
+version: "3.1"
+
+stories:
+
+- story: help path 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: know_latest_information
+    - action: utter_one
+    - action: utter_one_website
+    - action: utter_did_that_help
+
+- story: help path 2 product
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: complain
+    - action: utter_two
+    - intent: complain_product
+    - action: utter_two_product
+    - action: utter_product_list
+    - action: utter_did_that_help
+
+- story: help path 2 employee
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: complain
+    - action: utter_two
+    - intent: complain_employees
+    - action: utter_two_employee
+    - intent: department_name
+    - action: action_employee
+
+- story: help path 3
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: mobile_applet
+    - action: utter_three
+
+- story: help path 5 human service
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: other_needs
+    - action: utter_five
+    - intent: human_service
+    - action: utter_human_service
+    - action: utter_did_that_help
+
+- story: help path 5 feedback
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_menu
+    - intent: other_needs
+    - action: utter_five
+    - intent: feedback
+    - action: utter_answer_feedback
+    - action: utter_did_that_help
+
+- story: thanks affirm
+  steps:
+    - intent: good_words
+    - action: utter_other_help
+    - intent: affirm
+    - action: utter_menu
+
+- story: thanks deny
+  steps:
+    - intent: good_words
+    - action: utter_other_help
+    - or:
+        - intent: deny
+        - intent: goodbye
+    - action: utter_goodbye
+
+- story: response bad words
+  steps:
+    - intent: bad_words
+    - action: utter_response_bad_words
